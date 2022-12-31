@@ -21,14 +21,14 @@ Forking will take a few seconds.
 
 Once done, open the forked repo on a codespace :
 <p>
-  <img src="docs/open_codespace.png" alt="Code > Codespaces > Create codespace on master"/>
+  <img src="docs/open_codespace.png" alt="Code > Codespaces > Create codespace on master" width="300px"/>
 </p>
 
 You'll see a message telling it's creating, please wait for a while
 
 
 <p>
-  <img src="docs/create_container.png" alt="Wait for the codespace to be created"/>
+  <img src="docs/create_container.png" alt="Wait for the codespace to be created" width="300px"/>
 </p>
 
 
@@ -40,9 +40,15 @@ On the terminal, use `make hhk` to generate an HHK file, or `make bin` to genera
 
 You can now download generated files. If you run into issues during this step, please see [Getting support](#getting-support)
 
+This need to be done in two steps. First you'll need the hhk (and/or bin) generated :
+
 <p>
   <img src="docs/download_binary.png" alt="Download the files to upload to your calculator"/>
 </p>
+
+Then you'll need to download the whole "res" folder. Right click on it and choose "Download", then when prompted choose an empty folder to copy the file to. You'll be asked by the browser to "Let site view files" and "Save changes to <your_folder>", allow both to make the file copied at the right location. Your cursor should blink for a while and after a minute every file will be in <your_folder> you choosed.
+
+Open the destination folder and check if the folder "res" is in there. It's used by the games to have their assets (fonts and images) loaded
 
 Plug your calculator on your desktop and choose "USB Flash" mode.
 <p>
@@ -50,7 +56,9 @@ Plug your calculator on your desktop and choose "USB Flash" mode.
 </p>
 
 
-Go into your file explorer, on the "USB Drive" that's the calculator, and then copy at the root of it your `app_template.hhk` (or/and `app_template.bin`)
+Go into your file explorer, on the "USB Drive" that's the calculator, and then copy at the root of it your `game_template.hhk` (or/and `game_template.bin`) and copy the "res" folder at the root of the calculator drive too, otherwise your game will freeze.
+
+
 Then, eject the Classpad Mass Storage device by right clicking on notifications > "Safely remove device
 
 Finally on your calculator, go in "System" from the home screen, "System" from the top menu and "Hollyhock-2 Launcher"
