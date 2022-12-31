@@ -57,25 +57,71 @@ extern "C"
 void main() {
 	calcInit(); //backup screen and init some variables
 
-	// Put your app's code here!
+	RandomGenerator rngp;
+	rngp.SetSeed(1337);
+	rng = &rngp;
 
-	//Example for fillScreen(color);
-	fillScreen(color(0,64,0));
+	// load the textures and fonts
+	// LOAD_FONT_PTR("fnt\\7x8", f_7x8);
 
-	//Example for Debug_Printf(x,y,invert_color,0,format_string) //(small text)
-	Debug_Printf(10,1,false,0,"HelloWorld%d",42);
+	// game starting screen
+	// for (int i = 0; i < 100; i+=5) {
+	// 	fillScreen(color(22, 22, 22));
+	// 	draw_font_shader(f_7x8, "HHK Engine", 1, 128, color(255, 60, 0), 0, 0, 4, color(255, 190, 0));
+	// 	LCD_Refresh();
+	// }
 
-	//use this command to actually update the screen 
-	LCD_Refresh();
+	uint32_t frame = 0;
 
-	//Example for getKey
-	while(true){
-		uint32_t key1, key2;	//First create variables
-		getKey(&key1, &key2);	//then read the keys
-		if(testKey(key1, key2, KEY_CLEAR)){ //Use testKey() to test if a specific key is pressed
-			break;
-		}
+	Renderer renderer(0,0,320,528); // x,y,w,h
+	// set the pointer to the renderer
+	renderer_pointer = &renderer;
+
+	// Add event listeners
+	addListener(KEY_BACKSPACE, toggleDebug); // toggle debug mode
+	addListener(KEY_CLEAR, endGame); // end the game
+
+	addListener(KEY_LEFT, left, true); // left
+	addListener(KEY_RIGHT, right, true); // right
+	addListener2(KEY_UP, jump, true); // jump
+
+	TileManager tileManager;
+	tileManager.Init();
+	// set the pointer to the tile manager
+	tile_manager_pointer = &tileManager;
+
+	Player player;
+	player.loadTextures();
+	player_pointer = &player;
+	
+	fillScreen(color(0, 0, 0));
+
+	while (game_running) {
+		frame++;
+		checkEvents();
+		
+		renderer.tileChecks();
+
+		player.calculateAnimationFrame();
+		tileManager.DrawTiles(0,0);
+		player.animate();
+
+		renderer.render();
+
+		debugger(frame);
+		LCD_Refresh();
 	}
+
+	// game ending screen
+	// for (int i = 0; i < 30; i+=2) {
+	// 	fillScreen(color(240, 240, 240));
+	// 	draw_font_shader(f_7x8, "HHK Engine", 1, 248, color(50, 45, 45), 0, 0, 3, i);
+	// 	LCD_Refresh();
+	// }
+
+	// free memory
+	// free(f_7x8);
+	tileManager.FreeTextures();
 
 	calcEnd(); //restore screen and do stuff
 }
