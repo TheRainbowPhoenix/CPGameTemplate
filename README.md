@@ -48,6 +48,11 @@ This need to be done in two steps. First you'll need the hhk (and/or bin) genera
 
 Then you'll need to download the whole "res" folder. Right click on it and choose "Download", then when prompted choose an empty folder to copy the file to. You'll be asked by the browser to "Let site view files" and "Save changes to <your_folder>", allow both to make the file copied at the right location. Your cursor should blink for a while and after a minute every file will be in <your_folder> you choosed.
 
+<p>
+  <img src="docs/download_res_folder.png" alt="Download the res folder to your device"/>
+</p>
+
+
 Open the destination folder and check if the folder "res" is in there. It's used by the games to have their assets (fonts and images) loaded
 
 Plug your calculator on your desktop and choose "USB Flash" mode.
@@ -92,6 +97,10 @@ If you need help, feel free to join our community both in [Discord](https://disc
 ## Why is there HHK and BIN
 Design decisions made us split between ELF-compatible "hhk" and raw executable binary (or shellcode, kinda) "bin"
 
+
+## Adding your own assets and fonts 
+
+TODO: how to use tools, and create make target with python installed on the docker file
 
 ## Contributors
 
