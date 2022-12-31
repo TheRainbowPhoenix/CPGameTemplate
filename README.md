@@ -1,5 +1,10 @@
-# CPAppTemplate
+# CPGameTemplate
 A test that could become the next CP App Template
+Based on the [hhk Engine](https://github.com/s3ansh33p/hhkEngine)
+
+
+TODO: update this readme ...
+
 
 ## Usage
 First, fork this repo to work on your own :
@@ -62,10 +67,10 @@ You can edit the `main.cpp` file to add your own logic and build whatever you wa
 
 First thing you can do is edit the first lines that describe your app :
 ```
-APP_NAME("My app name")
-APP_DESCRIPTION("A short description of my app")
+APP_NAME("My game name")
+APP_DESCRIPTION("My First Game")
 APP_AUTHOR("My name")
-APP_VERSION("1.0.2")
+APP_VERSION("1.0")
 ```
 
 Then, you can take a look at the [beginners tutorials](#TODO) to build some simple programs and even small games.
@@ -78,3 +83,12 @@ If you need help, feel free to join our community both in [Discord](https://disc
 
 ## Why is there HHK and BIN
 Design decisions made us split between ELF-compatible "hhk" and raw executable binary (or shellcode, kinda) "bin"
+
+
+## Contributors
+
+- [@s3ash33p](https://www.github.com/s3ash33p)
+- [@InterChan](https://github.com/InterChan374)
+- [@SnailMath](https://github.com/SnailMath/)
+- [@DasHeiligeDoenerhuhn](https://github.com/DasHeiligeDoenerhuhn)
+- [@PC](https://github.com/TheRainbowPhoenix)

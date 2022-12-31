@@ -6,3 +6,17 @@
 # some temporary files under wsl
 *~
 .*~
+
+# Ignore make files
+start.o
+main.o
+calc.o
+div.o
+_hhkengine.elf
+
+build/*.o
+
+# hhkengine.hhk
+
+# Ignore workplace files
+settings.json
